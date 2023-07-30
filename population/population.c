@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int x = get_int("What's the start size of the population? ");
+    int n = get_int("What's the start size of the population? ");
 
     for (int x < 9;)
     {
