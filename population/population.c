@@ -12,7 +12,7 @@ int main(void)
 
     int y = get_int("What's the end size of the population?")// TODO: Prompt for end size
 
-    // TODO: Calculate number of years until we reach threshold
+    n = n + (n / 3) - (n / 4);// TODO: Calculate number of years until we reach threshold
 
-    // TODO: Print number of years
+    printf("Years: %i\n", n);
 }
