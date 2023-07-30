@@ -3,9 +3,14 @@
 
 int main(void)
 {
-    string answer = get string("What's the start size of the population?")// TODO: Prompt for start size
+    int x = get_int("What's the start size of the population? ");
 
-    string answer = get string("What's the end size of the population?")// TODO: Prompt for end size
+    if (x < 9)
+    {
+        printf("Please)
+    }
+
+    int y = get_int("What's the end size of the population?")// TODO: Prompt for end size
 
     // TODO: Calculate number of years until we reach threshold
 
