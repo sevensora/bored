@@ -5,7 +5,7 @@ int main(void)
 {
     int x = get_int("What's the start size of the population? ");
 
-    if (x < 9)
+    for (int x < 9;)
     {
         printf("Please)
     }
