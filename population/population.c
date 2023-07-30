@@ -3,13 +3,13 @@
 
 int main(void)
 {
-    int n = get_int("What's the start size of the population? ");
-
-    for (int x < 9;)
+    int n;
+    do
     {
-        printf("Please)
+        = get_int("What's the start size of the population? ");
     }
-
+    while (n < 9);
+}
     int y = get_int("What's the end size of the population?")// TODO: Prompt for end size
 
     n = n + (n / 3) - (n / 4);// TODO: Calculate number of years until we reach threshold
