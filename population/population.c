@@ -3,17 +3,26 @@
 
 int main(void)
 {
-    int startvalue, endvalue, numbyear = 0;
-    
+    int x, y, years = 0;
+
     do
     {
-        = get_int("What's the start size of the population? ");
+       int x = get_int("What's the start size of the population? ");
     }
-    while (n < 9);
+    while (x < 9);
 
-    int y = get_int("What's the end size of the population?")
+    do
+    {
+        int y = get_int("What's the end size of the population?")
+    }
+    while (y < x);
 
-    n = n + (n / 3) - (n / 4);
+    while (start < end)
+    {
+        x = x + (x / 3) - (x / 4);
+        years++;
+    }
 
-    printf("Years: %i\n", n);
+    printf("Years: %i\n", years);
+    return 0;
 }
