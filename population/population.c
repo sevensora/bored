@@ -3,17 +3,17 @@
 
 int main(void)
 {
-    int x, y, years = 0;
-
+    int x;
     do
     {
        int x = get_int("What's the start size of the population? ");
     }
     while (x < 9);
 
+    int y;
     do
     {
-        int y = get_int("What's the end size of the population?")
+        int y = get_int("What's the end size of the population? ")
     }
     while (y < x);
 
