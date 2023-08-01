@@ -40,15 +40,16 @@ int get_cents(void)
     int cents;
     do
     {
-        cents = get_int("Number of cents: ");
+        cents = get_int("Number of Cents: ");
     }
     while (cents < 0);
-    return int;
+    return cents;
 }
 
 int calculate_quarters(int cents)
 {
-    cents / 25
+    int quarters = 0;
+    while (cents )
     return int;
 }
 
