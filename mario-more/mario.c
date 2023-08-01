@@ -10,5 +10,5 @@ int main(void)
     }
     while (0 < x < 9);
 
-    for (int )
+    for (int i )
 }
