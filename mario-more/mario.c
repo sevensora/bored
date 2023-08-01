@@ -6,13 +6,13 @@ int main(void)
     int x;
     do
     {
-        x = get_int("Please enter height: ")
+        x = get_int("Please enter height: ");
     }
     while (0 < x < 9);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < x; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < x; j++)
         {
             printf("#");
         }
