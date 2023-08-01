@@ -17,7 +17,7 @@ int main(void)
     }
     while (y < x);
 
-    int years;
+    int years = 0;
     do
     {
         x = x + (x / 3) - (x / 4);
