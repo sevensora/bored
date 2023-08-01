@@ -10,8 +10,15 @@ int main(void)
     }
     while (height < 1 || height > 8);
 
-    for
+    for (int a = 0; a < x; a++)
     {
+        for (int b = 0; b < x; b++)
+        {
+            if (a + b < x - 1)
+                    print(" ");
+                else
+                    print("#")
+        }
         print("\n");
     }
 }
