@@ -8,5 +8,5 @@ int main(void)
     {
         x = get_int("Please enter height: ");
     }
-    while (0 < x < 9);
+    while (x < 1 || x > 8);
 }
