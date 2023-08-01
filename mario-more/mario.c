@@ -6,7 +6,9 @@ int main(void)
     int x;
     do
     {
-        x = get_int("Please enter desired height: ")
+        x = get_int("Please enter height: ")
     }
     while (0 < x < 9)
+
+    if
 }
