@@ -13,16 +13,17 @@ int main(void)
     int y;
     do
     {
-        int y = get_int("What's the end size of the population? ")
+        int y = get_int("What's the end size of the population?: ")
     }
     while (y < x);
 
-    while (start < end)
+    int years;
+    do
     {
         x = x + (x / 3) - (x / 4);
         years++;
     }
+    while (x < y);
 
     printf("Years: %i\n", years);
-    return 0;
 }
