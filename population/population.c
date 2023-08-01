@@ -3,9 +3,10 @@
 
 int main(void)
 {
+    int x;
     do
     {
-       int x = get_int("What's the start size of the population? ");
+       int x = get_int("What's the start size of the population?: ");
     }
     while (x < 9);
 
