@@ -8,14 +8,5 @@ int main(void)
     {
         x = get_int("Please enter height: ");
     }
-    while (0 < x < 9);
-
-    for (int i = 0; i < x; i++)
-    {
-        for (int j = 0; j < x; j++)
-        {
-            printf("#");
-        }
-        printf("\n");
-    }
+    while (0 > x > 9);
 }
