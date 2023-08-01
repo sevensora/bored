@@ -10,8 +10,12 @@ int main(void)
     }
     while (0 < x < 9);
 
-    for (int i = 0, i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int)
+        for (int j = 0; j < n; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
     }
 }
