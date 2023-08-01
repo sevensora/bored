@@ -10,5 +10,8 @@ int main(void)
     }
     while (0 < x < 9);
 
-    for (int i )
+    for (int i = 0, i < n; i++)
+    {
+        for (int)
+    }
 }
