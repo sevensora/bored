@@ -18,12 +18,12 @@ int main(void)
     while (y < x);
 
     int years = 0;
-    do
+    while (x < y);
     {
         x = x + (x / 3) - (x / 4);
         years++;
     }
-    while (x < y);
+
 
     printf("Years: %i\n", years);
 }
