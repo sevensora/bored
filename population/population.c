@@ -6,14 +6,14 @@ int main(void)
     int x;
     do
     {
-        int x = get_int("What's the start size of the population?: ");
+        int x = get_int("Population Start Size: ");
     }
     while (x < 9);
 
     int y;
     do
     {
-        int y = get_int("What's the end size of the population?: ");
+        int y = get_int("Popluation End Size: ");
     }
     while (y < x);
 
