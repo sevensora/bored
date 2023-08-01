@@ -6,18 +6,18 @@ int main(void)
     int x;
     do
     {
-        x = get_int ("Please enter height: ");
+        x = get_int ("Please enter height!: ");
     }
-    while (height < 1 || height > 8);
+    while (x < 1 || x > 8);
 
     for (int a = 0; a < x; a++)
     {
         for (int b = 0; b < x; b++)
         {
             if (a + b < x - 1)
-                    print(" ");
-                else
-                    print("#")
+                print(" ");
+            else
+                print("#")
         }
         print("\n");
     }
