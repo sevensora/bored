@@ -61,7 +61,7 @@ int main(int argc, string argv[])
         else if(islower(plaintext[i]))
         {
             int letter = plaintext[i] - 97;
-            print("%c", key[letter] + 32);
+            printf("%c", key[letter] + 32);
         }
         else printf("%c", plaintext[i]);
     }
