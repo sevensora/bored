@@ -14,10 +14,11 @@ int main(int argc, string argv[])
     {
         if (!isalpha(key[i]))
         {
-            printf("Usage: ./substitution\n");
+            printf("Usage: ./substitution key\n");
             return 1;
         }
     }
+    
     if(strlen(key) != 26)
     {
         printf("Key must contain 26 characters.\n");
