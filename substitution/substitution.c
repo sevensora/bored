@@ -1,5 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 int main(int argc, string argv[])
 {
@@ -51,7 +53,7 @@ int main(int argc, string argv[])
 
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        if (isupper(planintext[i]))
+        if (isupper(plaintext[i]))
         {
             int letter = plaintext[i] - 65;
             printf("%c", key[letter]);
