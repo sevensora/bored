@@ -18,7 +18,7 @@ int main(int argc, string argv[])
             return 1;
         }
     }
-    
+
     if(strlen(key) != 26)
     {
         printf("Key must contain 26 characters.\n");
@@ -64,5 +64,4 @@ int main(int argc, string argv[])
         else printf("%c", plaintext[i]);
     }
     printf("\n");
-
 }
