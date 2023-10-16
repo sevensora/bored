@@ -1,11 +1,11 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 int main(int argc, string argv[])
 {
-    if(argc != 2)
+    if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
         return 1;
@@ -21,7 +21,7 @@ int main(int argc, string argv[])
         }
     }
 
-    if(strlen(key) != 26)
+    if (strlen(key) != 26)
     {
         printf("Key must contain 26 characters.\n");
         return 1;
@@ -43,7 +43,7 @@ int main(int argc, string argv[])
 
     for (int i = 0; i < strlen(key); i++)
     {
-        if(islower(key[i]))
+        if (islower(key[i]))
         {
             key[i] = key[i] - 32;
         }
@@ -58,12 +58,13 @@ int main(int argc, string argv[])
             int letter = plaintext[i] - 65;
             printf("%c", key[letter]);
         }
-        else if(islower(plaintext[i]))
+        else if (islower(plaintext[i]))
         {
             int letter = plaintext[i] - 97;
             printf("%c", key[letter] + 32);
         }
-        else printf("%c", plaintext[i]);
+        else
+            printf("%c", plaintext[i]);
     }
     printf("\n");
 }
