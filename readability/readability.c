@@ -5,13 +5,32 @@
 
 int main(void)
 {
-    int letters = 0;
-    int sentences = 0;
-    int words = 0;
     string = get_string("Text: ");
 
-    for (int i = 0; i < strlen(text); i++)
+    int letters = 0;
+    for(int i = 0; i < strlen(text); i++)
     {
-        if(text[i] > 65 )
+        if((text[i] >= 'a' && text[i] <= 'z') ||
+            (text[i] >= 'A' && text[i] <= 'Z'))
+        letters++;
     }
+
+    int words = 1;
+    for(int i = 0; i <strlen(text); i++)
+    {
+        if(text[i] == '  ')
+        words++;
+    }
+
+    int sentences = 0;
+    for(int i = 0; i < strlen(text); i++)
+    {
+        if(text[i] == '.' || text[i] == '!' ||
+            text[i] == '?')
+        sentences++;
+    }
+
+    float calculation = (0.0588 * letters / words * 100) - (0.296 * sentences / words * 100) - 25.8;
+
+    int index = round(calculation)
 }
