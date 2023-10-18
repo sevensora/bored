@@ -35,7 +35,7 @@ int main(void)
 
     int index = round(calculation);
 
-    if(index < 1);
+    if(index < 1)
     {
         printf("Before Grade 1\n");
         returm 0;
