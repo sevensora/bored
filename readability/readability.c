@@ -1,11 +1,12 @@
 #include <cs50.h>
 #include <stdio.h>
-#include < string.h>
+#include <math.h>
+#include <string.h>
 
 
 int main(void)
 {
-    string = get_string("Text: ");
+    string text = get_string("Text: ");
 
     int letters = 0;
     for(int i = 0; i < strlen(text); i++)
@@ -18,7 +19,7 @@ int main(void)
     int words = 1;
     for(int i = 0; i <strlen(text); i++)
     {
-        if(text[i] == '  ')
+        if(text[i] == ' ')
         words++;
     }
 
