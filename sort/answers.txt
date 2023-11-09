@@ -1,7 +1,7 @@
 sort1 uses: TODO
-Selection Sort
+
 How do you know?: TODO
-Sort 1 took the longest (6.207 secs) to sort random50000.txt compared to the other two programs. Furthermore, sort1 was the quickest to 
+
 sort2 uses: TODO
 
 How do you know?: TODO
