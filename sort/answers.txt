@@ -1,11 +1,11 @@
 sort1 uses: TODO
-
+bubble sort
 How do you know?: TODO
-
+slowest to sort random50000.txt,
 sort2 uses: TODO
-
+merge sort
 How do you know?: TODO
-
+quickest to sort random50000.txt, merge sort has the quickest 
 sort3 uses: TODO
-
+selection sort
 How do you know?: TODO
