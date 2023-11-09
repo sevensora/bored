@@ -1,11 +1,11 @@
-sort1 uses: TODO
-bubble sort
-How do you know?: TODO
-slowest to sort random50000.txt,
-sort2 uses: TODO
-merge sort
-How do you know?: TODO
-quickest to sort random50000.txt, merge sort has the quickest 
-sort3 uses: TODO
-selection sort
-How do you know?: TODO
+sort1 uses: bubble sort
+
+How do you know?: slowest to sort random50000.txt. bubble sort is the least efficient of the 3 algorithms when it comes to sorting a large number of random values.
+
+sort2 uses: merge sort
+
+How do you know?: quickest to sort random50000.txt. merge sort is known to be the most efficient of the 3 algorithms when it comes to sorting a large number of random values.
+
+sort3 uses: selection sort
+
+How do you know?: second quickest to sort random50000.txt. selection sort is known to be the second-most efficient of the 3 algorithms when it comes to sorting a large number of random values.
