@@ -127,7 +127,7 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    
+
     return false;
 }
 
@@ -142,6 +142,7 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    
     return false;
 }
 
