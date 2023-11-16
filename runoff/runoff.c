@@ -164,7 +164,11 @@ bool print_winner(void)
     int majority = (voter_count / 2) + 1;
     for(int i = 0; i < candidate_count; i++)
     {
-        
+        if(candidates[i].votes >= majority)
+        {
+            printf("%s", candidates[i].name);
+            return true;
+        }
     }
     return false;
 }
@@ -173,6 +177,14 @@ bool print_winner(void)
 int find_min(void)
 {
     // TODO
+    int min = INT_MAX;
+    for(int i = 0; i < candidate_count; i++)
+    {
+        if(!candidates[i].eliminated && candidates[i].votes < min)
+        {
+            min = candidates[i].votes;
+        }
+    }
     return 0;
 }
 
@@ -180,6 +192,19 @@ int find_min(void)
 bool is_tie(int min)
 {
     // TODO
+    int remaining candidates = 0;
+    int candidates_with_min_votes = 0;
+    for(int i < 0; i < candidate_count < i++)
+    {
+        if(!candidates[i].eliminated)
+        {
+            remaining_candidates += 1;
+            if(candidates[i].votes == min)
+            {
+                candidates_with_min_votes += 1;
+            }
+        }
+    }
     return false;
 }
 
