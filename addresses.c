@@ -2,7 +2,8 @@
 
 int main(void)
 {
-    int n = 50;
-    int *p = &n;
-    printf("%p\n", px);
+    string s = "HI!";
+    printf("%p\n", s);
+    printf("%p\n", &s[0]);
+    
 }
