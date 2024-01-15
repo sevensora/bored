@@ -6,12 +6,6 @@ int main(void)
     char *s = get_string("s: ");
     char *t = get_string("t: ");
 
-    if (s == t)
-    {
-        printf("Same\n");
-    }
-    else
-    {
-        printf("Different\n");
-    }
+    printf("%p\n", s);
+    printf("%p\n", t);
 }
