@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
             count_image++;
         }
-        if (output_file !=NULL)
+        if (output_file != NULL)
         {
             fwrite(buffer, sizeof(char), 512, output_file);
         }
