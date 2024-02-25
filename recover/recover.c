@@ -1,6 +1,6 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 typedef uint8_t BTYE;
 
 int main(int argc, char *argv[])
@@ -29,13 +29,13 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, sizeof(char), 512, input_file))
     {
-        if(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if(count_image > 0)
+            if (count_image > 0)
             {
                 fclose(output_file);
             }
-            
+
             sprintf(filename, "%03i.jpg", count_image);
 
             output_file = fopen(filename, "w");
@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     free(filename);
     fclose(output_file);
     fclose(input_file);
-
 
     return 0;
 }
