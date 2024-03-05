@@ -8,7 +8,6 @@ int main(void)
     {
         return 1;
     }
-    int list[3];
 
     list[0] = 1;
     list[1] = 2;
