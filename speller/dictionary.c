@@ -64,7 +64,7 @@ bool load(const char *dictionary)
     {
         table[i] = NULL;
     }
-    FILE *dict_f = fopen(dict_f, "r");
+    FILE *dict_f = fopen(dictionary, "r");
 
     if(dict_f == NULL)
     {
