@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "dictionary.h"
 
@@ -13,6 +15,7 @@ typedef struct node
     struct node *next;
 } node;
 
+int no_words = 0;
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
@@ -56,6 +59,7 @@ bool load(const char *dictionary)
         strcpy(new_word->word, buffer);
         new_word->next = table[hash_value];
         table[hash_value] = new_word;
+        no_words++;
     }
 
     fclose(file);
@@ -67,7 +71,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    return no_words;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
