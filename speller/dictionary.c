@@ -26,6 +26,20 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    int hash_value = hash(word);
+    node *cursor = table[hash_value]
+    while(cursor !=NULL)
+    {
+        if(strcasecmp(curser->word, word) == 0)
+        while(true)
+        {
+            return true;
+        }
+        else
+        {
+            cursor = cursor->next
+        }
+    }
     return false;
 }
 
