@@ -64,15 +64,15 @@ bool load(const char *dictionary)
     {
         table[i] = NULL;
     }
-    FILE *dictionary = fopen(dictionary, "r");
+    FILE *dict_f = fopen(dict_f, "r");
 
-    if(dictionary == NULL)
+    if(dict_f == NULL)
     {
         printf("Unable to open dictionary\n");
         return false;
     }
     char buffer[45];
-    while(fscanf(dictionary, "%s", buffer) !=EOF)
+    while(fscanf(dict_f, "%s", buffer) !=EOF)
     {
         node *new_word = malloc(sizeof(node));
         int hash_value = hash(buffer);
@@ -82,7 +82,7 @@ bool load(const char *dictionary)
         no_words++;
     }
 
-    fclose(dictionary);
+    fclose(dict_f);
     return true;
 
 }
