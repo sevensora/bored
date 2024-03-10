@@ -31,14 +31,14 @@ bool check(const char *word)
     node *cursor = table[hash_value];
     while(cursor !=NULL)
     {
-        if(strcasecmp(curser->word, word) == 0)
+        if(strcasecmp(cursor->word, word) == 0)
         while(true)
         {
             return true;
         }
         else
         {
-            cursor = cursor->next
+            cursor = cursor->next;
         }
     }
     return false;
@@ -53,7 +53,7 @@ unsigned int hash(const char *word)
     {
         total += tolower(word[i]);
     }
-    return = total % N;
+    return total % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
