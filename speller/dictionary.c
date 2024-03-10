@@ -41,9 +41,15 @@ bool load(const char *dictionary)
 
     if(dictionary == NULL)
     {
-        printf("Unable to open dictionary\n"):
+        printf("Unable to open dictionary\n");
+        return false;
     }
-    return false;
+    char buffer[45];
+    while(fscanf(dictionary, "%s", buffer))
+    {
+        node *new
+    }
+
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
