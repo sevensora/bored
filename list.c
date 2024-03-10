@@ -1,9 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-
-int main(void)
+typedef struct node
 {
+    int number;
+    struct node *next;
+}
+node;
+
+int main(int argc, char *argv[])
+{
+    node *list = NULL;
+
+    for (int i = 1; i < argc; i++)
+    {
+        
+    }
+
+
+
     int *list = malloc(3 * sizeof(int));
     if (list == NULL)
     {
