@@ -66,7 +66,7 @@ bool load(const char *dictionary)
         return false;
     }
     char buffer[45];
-    while(fscanf(dictionary, "%s", buffer))
+    while(fscanf(dictionary, "%s", buffer) !=EOF)
     {
         node *new_word = malloc(sizeof(node));
         int hash_value = has(buffer);
@@ -76,7 +76,7 @@ bool load(const char *dictionary)
         no_words++;
     }
 
-    fclose(file);
+    fclose(dictionary);
     return true;
 
 }
@@ -92,5 +92,16 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    return false;
+    for (int i = 0; i < N; i++)
+    {
+        node *tmp = table[i];
+        node *cursor = table[i];
+        while(cursor !=NULL)
+        {
+            cursor = cursor->next;
+            free(tmp);
+            tmp = cursor;
+        }
+    }
+    return true;
 }
