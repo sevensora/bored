@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -69,7 +70,7 @@ bool load(const char *dictionary)
     while(fscanf(dictionary, "%s", buffer) !=EOF)
     {
         node *new_word = malloc(sizeof(node));
-        int hash_value = has(buffer);
+        int hash_value = hash(buffer);
         strcpy(new_word->word, buffer);
         new_word->next = table[hash_value];
         table[hash_value] = new_word;
