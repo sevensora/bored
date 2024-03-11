@@ -6,10 +6,10 @@ sentence = letter = word = 0
 
 for x in text:
     if x.isalpha():
-        letters += 1
+        letter += 1
     elif x == "":
         word += 1
-    elif x == "." or x == "?" or i == "!":
+    elif x == "." or x == "?" or x == "!":
         sentence += 1
 
 index = .0588 * (letter/word * 100) - .296 * (sentence/word * 100) - 15.8
