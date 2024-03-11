@@ -1,8 +1,8 @@
 from cs50 import get_float
 while True:
     cents = get_float('Change: ')
-    if cents > 0
-    break
+    if cents > 0:
+        break
 
 count = 0
 
