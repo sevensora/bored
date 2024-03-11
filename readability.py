@@ -2,8 +2,12 @@ from cs50 import get_string
 
 text = get_string("Text: ")
 
+sentence=0
 
-letter = 0
+letter=0
+
+word=0
+
 for x in text:
     if x.isalpha():
         letter += 1
