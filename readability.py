@@ -22,7 +22,7 @@ level = int(.0588 * letterword - .296 * sentenceword - 15.8)
 if level < 1:
     print("Before Grade 1")
 elif level >= 16:
-    print("Grade 16 and above")
+    print("Grade 16+")
 else:
     print("Grade ", round(level))
 
