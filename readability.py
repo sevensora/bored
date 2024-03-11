@@ -7,7 +7,7 @@ sentence = letter = word = 0
 for x in text:
     if x.isalpha():
         letter += 1
-    if x == "":
+    if x == " ":
         word += 1
     if x == "." or x == "?" or x == "!":
         sentence += 1
