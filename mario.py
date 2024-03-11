@@ -1,4 +1,12 @@
+from cs50 import get_int
 
+while True:
+    n = get_int('Please enter height!: ')
+    if n > 0:
+        break
+
+for i in range(n):
+    print('#')
     do
 
         x = get_int("Please enter height!: ");
