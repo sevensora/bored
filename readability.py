@@ -24,5 +24,5 @@ if level < 1:
 elif level >= 16:
     print("Grade 16+")
 else:
-    print("Grade ", round(level))
+    print(f"Grade ", {level}")
 
