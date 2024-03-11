@@ -11,6 +11,7 @@ for x in text:
         word += 1
     elif x == "." or x == "?" or x == "!":
         sentence += 1
+word += 1
 
 letterword = letter / word *100
 
