@@ -16,11 +16,11 @@ letterword = letter / word *100
 
 sentenceword = sentence / word *100
 
-level = .0588 * letterword - .296 * sentenceword - 15.8
+level = int(.0588 * letterword - .296 * sentenceword - 15.8)
 
-if index < 1:
+if level < 1:
     print("Before Grade 1")
-elif index >= 16:
+elif level >= 16:
     print("Grade 16 and above")
 else:
     print("Grade ", round(level))
