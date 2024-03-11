@@ -1,3 +1,5 @@
 from cs50 import get_string
 
-te
+text = get_string("Text: ")
+
+
