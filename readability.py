@@ -7,9 +7,9 @@ sentence = letter = word = 0
 for x in text:
     if x.isalpha():
         letter += 1
-    elif x == "":
+    if x == "":
         word += 1
-    elif x == "." or x == "?" or x == "!":
+    if x == "." or x == "?" or x == "!":
         sentence += 1
 word += 1
 
@@ -17,7 +17,7 @@ letterword = letter / word *100
 
 sentenceword = sentence / word *100
 
-level = int((.0588 * letterword - .296 * sentenceword - 15.8)+.5)
+level = int(.0588 * letterword - .296 * sentenceword - 15.8)
 
 if level < 1:
     print("Before Grade 1")
