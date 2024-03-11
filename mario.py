@@ -7,7 +7,8 @@ while True:
 
 for i in range(n):
     print('#')
-    do
+
+
 
         x = get_int("Please enter height!: ");
     }
