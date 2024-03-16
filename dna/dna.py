@@ -32,6 +32,7 @@ def main():
         match = True
         for str in str_record:
             if int(person[str]) == result[str]:
+                match = False
 
                 break
         if match == True:
@@ -39,8 +40,6 @@ def main():
 
 
     return
-
-    print("Match not found")
 
 
 def longest_match(sequence, subsequence):
