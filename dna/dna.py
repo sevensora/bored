@@ -6,11 +6,11 @@ def main():
 
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
-        sys.exit("Enter: python dna.py data.csv sequence.txt")
+        sys.exit("Command-File Usage: python dna.py data.csv sequence.txt")
 
 
     # TODO: Read database file into a variable
-    with open(sys.arv[1], "r") as data_file:
+    with open(sys.argv[1], "r") as data_file:
         reader = csv.DictReader(data_file)
         for row in reader:
             database = [row for row in reader]
