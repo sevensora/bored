@@ -23,7 +23,7 @@ def main():
     str_record = reader.fieldnames
     str_record.remove('name')
     for str in str_record:
-        dna_data[str] = longest_match(seq_file, str)
+        dna_data[str] = longest_match(sequence, str)
 
 
     # TODO: Check database for matching profiles
