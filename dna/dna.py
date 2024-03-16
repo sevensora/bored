@@ -8,7 +8,6 @@ def main():
     if len(sys.argv) != 3:
         sys.exit("Command-File Usage: python dna.py data.csv sequence.txt")
 
-
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as data_file:
         reader = csv.DictReader(data_file)
@@ -25,7 +24,6 @@ def main():
     for str in str_record:
         dna_data[str] = longest_match(sequence, str)
 
-
     # TODO: Check database for matching profiles
     for person in database:
         match = True
@@ -37,7 +35,6 @@ def main():
         if match == True:
             print(person["name"])
             return
-
 
     print("No match")
 
