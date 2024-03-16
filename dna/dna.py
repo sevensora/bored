@@ -30,7 +30,7 @@ def main():
     for person in database:
         match = True
         for str in str_record:
-            if int(person[str]) == result[str]:
+            if int(person[str]) != dna_data[str]:
                 match = False
 
                 break
