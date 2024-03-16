@@ -20,14 +20,27 @@ def main():
         sequence = seq_file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    dna_
+    dna_data = {}
     str_record = reader.fieldnames
     str_record.remove('name')
+    for str in str_record:
+        dna_data[str] = longest_match(read_data, str)
 
 
     # TODO: Check database for matching profiles
+    for person in database:
+        match = True
+        for str in str_record:
+            if int(person[str]) == result[str]:
+
+                break
+        if match == True:
+            print(person["name"])
+
 
     return
+
+    print("Match not found")
 
 
 def longest_match(sequence, subsequence):
