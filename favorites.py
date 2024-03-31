@@ -10,7 +10,7 @@ with open("favorites.csv", "r") as file:
 
     for row in reader:
         favourite = row["problem"]
-        counts[favourite] += 1
+        counts[favorite] += 1
 
-favourite = input("Favourite: ")
-print(f"{favourite}: {counts[favourite]}")
+favorite = input("Favorite: ")
+print(f"{favorite}: {counts[favorite]}")
