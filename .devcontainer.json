@@ -128,7 +128,7 @@
         "java.configuration.runtimes": [
           {
             "default": true,
-            "name": "JavaSE-21",
+            "name": "JavaSE-22",
             "path": "/opt/jdk"
           }
         ],
@@ -215,7 +215,7 @@
     8082,
     8787
   ],
-  "image": "ghcr.io/cs50/codespace:00ae65f484da2691d86ddb8e6bb3b844cbb4686d",
+  "image": "ghcr.io/cs50/codespace:63132a04b51b25a71acc95a7956f66c34e786cd0",
   "mounts": [
     {
       "source": "/var/run/docker.sock",
