@@ -1,1 +1,1 @@
-SELECT name FROM songs WHERE 
+SELECT name FROM songs WHERE danceability > .75 AND energy > .75 and valence > 0.75;
