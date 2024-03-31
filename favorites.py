@@ -6,7 +6,7 @@ with open("favorites.csv", "r") as file:
 
     reader = csv.DictReader(file)
 
-    counts = counter()
+    counts = Counter()
 
     for row in reader:
         favourite = row["problem"]
