@@ -21,6 +21,7 @@ where passengers.flight_id = (select id from flights where day = 29 and month = 
 
 select city from airports where id = (select destination_airport_id from flights where day = 29 and month = 7 and origin_airport_id = (SELECT id from airports where city = "Fiftyville") order by hour,minute limit 1);
 
-select phone_number from people where name = "Bruce"
+select phone_number from people where name = "Bruce";
 
-select name from people where phone_number = (select receiver from phone_calls where day = 28 and month = 7 and duration < 60 and caller = "(367) 555-5533");
+
+SELECT name from people where phone_number = (select receiver from phone_calls where day = 28 and month = 7 and duration < 60 and caller = "(367) 555-5533");
