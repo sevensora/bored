@@ -5,4 +5,6 @@ SELECT license_plate, activity, hour, minute FROM bakery_security_logs WHERE hou
 
 SELECT transcript, name FROM interviews WHERE day = 28 AND month = 7 AND transcript like "%bakery%";
 
+SELECT license_plate, activity, hour, minute FROM bakery_security_logs WHERE day = 28 AND month = 7 AND hour < 11 and hour > 9;
 
+SELECT account_number, transaction_type, amount
