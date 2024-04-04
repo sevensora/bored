@@ -15,3 +15,4 @@ JOIN bakery_security_logs ON bakery_security_logs.license_plate = people.license
 JOIN people ON people.id = bank_accounts.person_id Where atm_transactions.day = 28 AND atm_transactions.month = 7
 AND atm_transactions.atm_location = "Leggett Street" AND bakery_security_logs.hour > 9 AND bakery_security_logs.hour < 11
 ORDER BY bakery_security_logs.minute;
+
