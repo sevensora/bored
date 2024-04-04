@@ -72,15 +72,15 @@
 | Diana  |
 | Taylor |
 +--------+
-+-----------+
-|   name    |
-+-----------+
-| Gloria    |
-| Kristina  |
-| Douglas   |
-| Diana     |
-| Christian |
-| Michael   |
-| Ethan     |
-| Charles   |
-+-----------+
++--------+
+|  name  |
++--------+
+| Doris  |
+| Sofia  |
+| Bruce  |
+| Edward |
+| Kelsey |
+| Taylor |
+| Kenny  |
+| Luca   |
++--------+
