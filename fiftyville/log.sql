@@ -23,3 +23,4 @@ select city from airports where id = (select destination_airport_id from flights
 
 select phone_number from people where name = "bruce"
 
+select name from people where phone_number = (select receiver from phone_calls where day = 28 and month = 7 and duration < 60 and caller = "(367) 555-5533";
