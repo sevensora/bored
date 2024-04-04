@@ -18,3 +18,5 @@ ORDER BY bakery_security_logs.minute;
 
 SELECT name from people join passengers on passengers.passport_number = people.passport_number
 where passengers.flight_id = (select id from flights where day = 29 and month = 7 and origin_airport_id = (select id from airports where city = "Fiftyville") order by hour, minute limit 1);
+
+select city from airports where id = (select destination_airport_id from flights where year)
