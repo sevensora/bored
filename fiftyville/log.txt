@@ -72,3 +72,15 @@
 | Diana  |
 | Taylor |
 +--------+
++-----------+
+|   name    |
++-----------+
+| Gloria    |
+| Kristina  |
+| Douglas   |
+| Diana     |
+| Christian |
+| Michael   |
+| Ethan     |
+| Charles   |
++-----------+

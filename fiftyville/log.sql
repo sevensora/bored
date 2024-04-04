@@ -16,3 +16,5 @@ JOIN people ON people.id = bank_accounts.person_id Where atm_transactions.day = 
 AND atm_transactions.atm_location = "Leggett Street" AND bakery_security_logs.hour > 9 AND bakery_security_logs.hour < 11
 ORDER BY bakery_security_logs.minute;
 
+SELECT name from people join passengers on passengers.passport_number = people.passport_number
+where passengers.flight_id = (select id from flights where day = 29 and month = 7 and origin_airport_id = (select id from airports where city = "Fiftyville") order by minute, hour limit 1);
