@@ -11,13 +11,13 @@
                 let correct = document.querySelector('.correct');
                 correct.addEventListener('click', function() {
                     correct.style.backgroundColor = "green";
-                    document.querySelector().innerHTML = "Correct";
+                    document.querySelector("#ans1").innerHTML = "Correct";
                 }):
                 let incorrect = document.querySelectorAll(".incorrect");
                 for (let i = 0; i < incorrect.length; i++) {
                     incorrect[i].addEventListener("click", function(){
                         incorrect[i].style.backgroundColor="red";
-                    document.querySelector("#answer").innerHTML = "Incorrect";
+                    document.querySelector("#ans1").innerHTML = "Incorrect";
                     });
                 }
                 document.querySelector("#check").addEventListener("click", function () {
