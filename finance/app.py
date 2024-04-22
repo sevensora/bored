@@ -119,7 +119,13 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if not username:
-            return apology("Please provide username")
+            return apology("Please provide username UwU")
+        if not password:
+            return apology("Please provide password UwU")
+        if not confirmation:
+            return apology("Please provide confirmation UwU")
+        if password != confirmation:
+            return apology(")
 
 
 @app.route("/sell", methods=["GET", "POST"])
