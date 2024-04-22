@@ -42,6 +42,21 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
+    if request.method == "POST":
+        shares = request.form.get("shares")
+        symbol = request.form.get("symbol").upper()
+        if not symbol:
+            return apology("Please provide symbol")
+
+        quote = lookup(symbol)
+        if quote is None:
+            return apology("Symbol cannot be found")
+
+        price = quote["price"]
+        total_cost = int(shares)*price
+        cash = db.execute("SELECT cash FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["cash"]
+        if cash < total_cost:
+            return apology(")
     return apology("TODO")
 
 
