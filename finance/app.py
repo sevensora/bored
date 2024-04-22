@@ -56,7 +56,7 @@ def buy():
         total_cost = int(shares)*price
         cash = db.execute("SELECT cash FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["cash"]
         if cash < total_cost:
-            return apology(")
+            return apology("Looks like you don't have enough bread $$")
     return apology("TODO")
 
 
