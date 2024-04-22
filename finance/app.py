@@ -115,7 +115,11 @@ def register():
     if request.method == "GET":
         return render_template("register.html")
     else:
-        
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        if not username:
+            return apology("Please provide username")
 
 
 @app.route("/sell", methods=["GET", "POST"])
