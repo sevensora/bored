@@ -157,7 +157,7 @@ def register():
             return apology("Please provide confirmation UwU")
         if password != confirmation:
             return apology("Please check password")
-
+        hash = generate_password
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
