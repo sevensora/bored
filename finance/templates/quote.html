@@ -11,7 +11,7 @@
         <input type="text" name="symbol" id="symbol" placeholder="Symbol">
         <button type="submit">Submit</button>
     </form>
-    {& if quote &}
+    {% if quote %}
         <h3>{{ quote['name'] }} ({{ quote['symbol'] }})</h3>
         <p>Price: {{ quote['price']|usd }}</p>
     {% endif %}
