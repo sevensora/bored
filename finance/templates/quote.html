@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <h2>Find a stock quote</h2>
+    <h1>Find a stock quote</h1>
     <form action="{{ url_for('quote') }}" method="post">
         <label for="symbol">Symbol:</label>
         <input type="text" name="symbol" id="symbol" placeholder="Symbol">
