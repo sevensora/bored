@@ -10,8 +10,12 @@
     <form action="/buy" method="post">
         <form action="mb-3">
             <div class="mb-3">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol"
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
             </div>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="share" placeholder="Symbol" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Buy</button>
         </form>
 
 {% endblock %}
