@@ -64,7 +64,7 @@ def buy():
             return apology("Number of shares must be a numeric value.")
 
         quote = lookup(symbol)
-        if quote is str(None):
+        if quote is None:
             return apology("Stock symbol not found. Please enter a valid symbol.")
 
         price = quote['price']
