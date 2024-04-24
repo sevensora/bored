@@ -12,7 +12,6 @@ from helpers import apology, login_required, lookup, usd
 app = Flask(__name__)
 
 # Custom filter
-app.jinja_env.filters["usd"] = usd
 app.jinja_env.globals.update(usd=usd)
 
 # Configure session to use filesystem (instead of signed cookies)
