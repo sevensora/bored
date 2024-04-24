@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
     <div class="container">
         <h1>Your Portfolio</h1>
         <table class="table">
@@ -33,5 +31,4 @@
             <h3>Cash: {{ usd(cash) }}</h3>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
