@@ -50,28 +50,28 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-     if request.method == "POST":
-        shares = request.form.get("shares")
-        symbol = request.form.get("symbol").upper()
-        if not symbol:
-            return apology("Please provide symbol")
+    if request.method == "POST":
+         shares = request.form.get("shares")
+          symbol = request.form.get("symbol").upper()
+           if not symbol:
+                return apology("Please provide symbol")
 
-        quote = lookup(symbol)
-        if quote is None:
-            return apology("Symbol cannot be found")
+            quote = lookup(symbol)
+            if quote is None:
+                return apology("Symbol cannot be found")
 
-        price = quote["price"]
-        total_cost = int(shares)*price
-        cash = db.execute("SELECT cash FROM users WHERE id = :user_id",
-                          user_id=session["user_id"])[0]["cash"]
-        if cash < total_cost:
-            return apology("Looks like you don't have enough bread $$")
-        db.execute("UPDATE users SET cash = cash - :total_cost WHERE id = :user_id",
-                   total_cost=total_cost, user_id=session["user_id"])
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
-                   user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
-        flash(f"Bought {shares} shares of {symbol} for {used(total_cost)}!")
-        return redirect("/")
+            price = quote["price"]
+            total_cost = int(shares)*price
+            cash = db.execute("SELECT cash FROM users WHERE id = :user_id",
+                              user_id=session["user_id"])[0]["cash"]
+            if cash < total_cost:
+                return apology("Looks like you don't have enough bread $$")
+            db.execute("UPDATE users SET cash = cash - :total_cost WHERE id = :user_id",
+                       total_cost=total_cost, user_id=session["user_id"])
+            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
+                       user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
+            flash(f"Bought {shares} shares of {symbol} for {used(total_cost)}!")
+            return redirect("/")
     else:
         return render_template("buy.html")
 
@@ -139,17 +139,65 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    return apology("TODO")
+    if request.method == "POST":
+        symbol = request.form.get("symbol")
+        quote = lookup(symbol)
+
+        if not quote:
+            return apology("Symbol not valid", 400)
+        return render_template("quote.html", quote=quote)
+    else:
+        return render_template("quote.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    return apology("TODO")
+    if request.method == "POST":
+         symbol = request.form.get("symbol")
+          quote = lookup(symbol)
+
+           if not quote:
+                return apology("Symbol not valid", 400)
+            return render_template("quote.html", quote=quote)
+    else:
+        return render_template("quote.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    """Register user"""
+    if request.method == "GET":
+        return render_template("register.html")
+    else:
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        if not username:
+            return apology("Please provide username UwU")
+        if not password:
+            return apology("Please provide password UwU")
+        if not confirmation:
+            return apology("Please provide confirmation UwU")
+        if password != confirmation:
+            return apology("Please check password")
+        hash = generate_password_hash(password)
+        try:
+            new_user = db.execute(
+                "INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
+        except:
+            return apology("Username already exists :(")
+        session["user_id"] = new_user
+        return redirect("/")
 
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    def sell():
+    if request.method == "GET":
+        user_id = session["user_id"]
+        symbols_user = db.execute(
+            "SELECT symbol FROM transaction WHERE user_id = :id HAVING SUM(shares) > 0", id=user_id)
+        return render_template("sell.html", symbols=[row["symbol"] for row in rows])
