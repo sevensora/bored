@@ -82,7 +82,8 @@ def buy():
         db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
                    user_id=user_id, symbol=symbol, shares=shares, price=price)
 
-        flash(f"Successfully bought {shares} shares of {symbol} at {usd(price)} each, total cost {usd(total_cost)}.")
+        flash(f"Successfully bought {shares} shares of {symbol} at {
+              usd(price)} each, total cost {usd(total_cost)}.")
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -228,6 +229,3 @@ def change_password():
         return redirect("/")
     else:
         return render_template("change_password.html")
-
-
-
