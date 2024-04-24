@@ -169,7 +169,7 @@ def register():
         try:
             new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
         except:
-            return apology("Username already exists")
+            return apology("Username already exists :(")
         session["user_id"] = new_user
         return redirect("/")
 
