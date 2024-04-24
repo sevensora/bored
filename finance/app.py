@@ -7,8 +7,13 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
 
+def usd(value):
+    return f"${value:,.2f}"
+
 # Configure application
 app = Flask(__name__)
+
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
