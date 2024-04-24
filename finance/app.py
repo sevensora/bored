@@ -7,8 +7,10 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
 
+
 def usd(value):
     return f"${value:,.2f}"
+
 
 # Configure application
 app = Flask(__name__)
@@ -74,7 +76,8 @@ def buy():
         price = quote['price']
         total_cost = shares * price
         user_id = session["user_id"]
-        user_cash = db.execute("SELECT cash FROM users WHERE id = :user_id", user_id=user_id)[0]["cash"]
+        user_cash = db.execute("SELECT cash FROM users WHERE id = :user_id",
+                               user_id=user_id)[0]["cash"]
 
         if user_cash < total_cost:
             return apology("Insufficient funds to complete purchase.")
@@ -85,11 +88,11 @@ def buy():
         db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (:user_id, :symbol, :shares, :price, 'buy')",
                    user_id=user_id, symbol=symbol, shares=shares, price=price)
 
-        flash(f"Successfully bought {shares} shares of {symbol} at {usd(price)} each, total cost {usd(total_cost)}.")
+        flash(f"Successfully bought {shares} shares of {symbol} at {
+              usd(price)} each, total cost {usd(total_cost)}.")
         return redirect("/")
     else:
         return render_template("buy.html")
-
 
 
 @app.route("/history")
@@ -193,7 +196,6 @@ def register():
         return render_template("register.html")
 
 
-
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
@@ -202,6 +204,7 @@ def sell():
         symbols_user = db.execute(
             "SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = :id GROUP BY symbol HAVING total_shares > 0", id=user_id)
         return render_template("sell.html", symbols=[row["symbol"] for row in symbols_user])
+
 
 @app.route("/change_password", methods=["GET", "POST"])
 @login_required
@@ -232,4 +235,3 @@ def change_password():
         return redirect("/")
     else:
         return render_template("change_password.html")
-
