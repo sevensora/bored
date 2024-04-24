@@ -49,35 +49,42 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        try:
-            shares = int(request.form.get("shares"))
-            if shares <= 0:
-                return apology("Number of shares must be positive")
-        except ValueError:
-            return apology("Invalid number of shares")
-
-        symbol = request.form.get("symbol").upper()
+        symbol = request.form.get("symbol").upper().strip() 
         if not symbol:
-            return apology("Please provide symbol")
+            return apology("Please provide a stock symbol.")
+
+        try:
+            shares = float(request.form.get("shares"))
+
+            if shares != int(shares) or shares <= 0:
+                return apology("Number of shares must be a positive integer.")
+            shares = int(shares)
+        except ValueError:
+            return apology("Number of shares must be a numeric value.")
 
         quote = lookup(symbol)
         if quote is None:
-            return apology("Symbol cannot be found")
+            return apology("Stock symbol not found. Please enter a valid symbol.")
 
-        price = quote["price"]
+        price = quote['price']
         total_cost = shares * price
-        cash = db.execute("SELECT cash FROM users WHERE id = :user_id",
-                          user_id=session["user_id"])[0]["cash"]
-        if cash < total_cost:
-            return apology("Looks like you don't have enough bread $$")
+        user_id = session["user_id"]
+        user_cash = db.execute("SELECT cash FROM users WHERE id = :user_id", user_id=user_id)[0]["cash"]
+
+        if user_cash < total_cost:
+            return apology("Insufficient funds to complete purchase.")
+
         db.execute("UPDATE users SET cash = cash - :total_cost WHERE id = :user_id",
-                   total_cost=total_cost, user_id=session["user_id"])
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (:user_id, :symbol, :shares, :price)",
-                   user_id=session["user_id"], symbol=symbol, shares=shares, price=price)
-        flash(f"Bought {shares} shares of {symbol} for {usd(total_cost)}!")
+                   total_cost=total_cost, user_id=user_id)
+
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (:user_id, :symbol, :shares, :price, 'buy')",
+                   user_id=user_id, symbol=symbol, shares=shares, price=price)
+
+        flash(f"Successfully bought {shares} shares of {symbol} at {usd(price)} each, total cost {usd(total_cost)}.")
         return redirect("/")
     else:
         return render_template("buy.html")
+
 
 
 @app.route("/history")
