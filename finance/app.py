@@ -228,3 +228,6 @@ def change_password():
         return redirect("/")
     else:
         return render_template("change_password.html")
+
+  
+
