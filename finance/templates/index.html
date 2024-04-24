@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>Symbol</th>
+                    <th>Name</th>
                     <th>Shares</th>
                     <th>Price</th>
                     <th>Total</th>
@@ -19,10 +20,11 @@
             <tbody>
                 {% for item in database %}
                 <tr>
-                    <td>{{ item.symbol }}</td>
-                    <td>{{ item.shares }}</td>
-                    <td>{{ usd(item.price) }}</td>
-                    <td>{{ usd(item.shares * item.price) }}</td>
+                    <td>{{ stock['symbol'] }}</td>
+                    <td>{{ stock['name'] }}</td>
+                    <td>{{ stock['shares'] }}</td>
+                    <td>{{ stock['price'] | usd }}</td>
+                    <td>{{ stock['total'] | usd }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
