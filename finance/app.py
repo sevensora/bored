@@ -49,7 +49,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol").upper().strip() 
+        symbol = request.form.get("symbol").upper().strip()
         if not symbol:
             return apology("Please provide a stock symbol.")
 
@@ -205,4 +205,34 @@ def sell():
         symbols_user = db.execute(
             "SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = :id GROUP BY symbol HAVING total_shares > 0", id=user_id)
         return render_template("sell.html", symbols=[row["symbol"] for row in symbols_user])
+
+@app.route("/change_password", methods=["GET", "POST"])
+@login_required
+def change_password():
+    """Allow user to change password."""
+    if request.method == "POST":
+        current_password = request.form.get("current_password")
+        new_password = request.form.get("new_password")
+        confirmation = request.form.get("confirmation")
+
+        if not current_password or not new_password or not confirmation:
+            return apology("Must provide all password fields", 403)
+
+        user_id = session["user_id"]
+        user = db.execute("SELECT hash FROM users WHERE id = :user_id", user_id=user_id)
+
+        if not check_password_hash(user[0]['hash'], current_password):
+            return apology("Invalid current password", 403)
+
+        if new_password != confirmation:
+            return apology("New passwords do not match", 403)
+
+        new_password_hash = generate_password_hash(new_password)
+        db.execute("UPDATE users SET hash = :new_hash WHERE id = :user_id",
+                   new_hash=new_password_hash, user_id=user_id)
+
+        flash("Your password has been changed successfully.")
+        return redirect("/")
+    else:
+        return render_template("change_password.html")
 
