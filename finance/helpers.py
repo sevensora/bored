@@ -43,7 +43,7 @@ def login_required(f):
 
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if session.get("user_id") is None:
+        if session.get("user_id") is str(None):
             return redirect("/login")
         return f(*args, **kwargs)
 
@@ -80,7 +80,7 @@ def lookup(symbol):
         price = round(float(quotes[-1]["Adj Close"]), 2)
         return {"price": price, "symbol": symbol}
     except (KeyError, IndexError, requests.RequestException, ValueError):
-        return None
+        return str(None)
 
 
 def usd(value):
