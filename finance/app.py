@@ -21,6 +21,20 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+def init_db():
+    db = SQL("sqlite:///finance.db")
+    db.execute("CREATE TABLE IF NOT EXISTS transactions ("
+               "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+               "user_id INTEGER NOT NULL,"
+               "symbol TEXT NOT NULL,"
+               "shares INTEGER NOT NULL,"
+               "price REAL NOT NULL,"
+               "timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,"
+               "FOREIGN KEY(user_id) REFERENCES users(id))")
+
+init_db()  # Call this function early in your application setup
+
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
