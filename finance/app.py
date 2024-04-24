@@ -79,7 +79,7 @@ def buy():
         db.execute("UPDATE users SET cash = cash - :total_cost WHERE id = :user_id",
                    total_cost=total_cost, user_id=user_id)
 
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, type) VALUES (:user_id, :symbol, :shares, :price, 'buy')",
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price,) VALUES (:user_id, :symbol, :shares, :price, 'buy')",
                    user_id=user_id, symbol=symbol, shares=shares, price=price)
 
         flash(f"Successfully bought {shares} shares of {symbol} at {usd(price)} each, total cost {usd(total_cost)}.")
