@@ -18,20 +18,19 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in database %}
+                {% for stock in database %}
                 <tr>
-                    <td>{{ item['symbol'] }}</td>
-                    <td>{{ item['name'] }}</td>
-                    <td>{{ item['shares'] }}</td>
-                    <td>{% if item['price'] is not none %}{{ item['price'] | usd }}{% endif %}</td>
-                    <td>{% if item['total'] is not none %}{{ item['total'] | usd }}{% endif %}</td>
+                    <td>{{ stock['symbol'] }}</td>
+                    <td>{{ stock['name'] }}</td>
+                    <td>{{ stock['shares'] }}</td>
+                    <td>{{ stock['price'] | usd }}</td>
+                    <td>{{ stock['total'] | usd }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <div>
-            <h3>Cash: {% if cash is not none %}{{ usd(cash) }}{% endif %}</h3>
+            <h3>Cash: {{ usd(cash) }}</h3>
         </div>
     </div>
 {% endblock %}
-
