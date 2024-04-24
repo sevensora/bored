@@ -163,21 +163,31 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
+
         if not username:
-            return apology("Please provide username UwU")
+            return apology("Please provide username")
+
         if not password:
-            return apology("Please provide password UwU")
-        if not confirmation:
-            return apology("Please provide confirmation UwU")
-        if password != confirmation:
+            return apology("Please provide password")
+
+        if not confirmation or confirmation != password:
             return apology("Passwords do not match")
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", username)
+        if len(rows) > 0:
+            return apology("Username already exists")
+
         hash = generate_password_hash(password)
-        try:
-            new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
-        except:
-            return apology("Username already exists :(")
-        session["user_id"] = new_user
+
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
+
+        rows = db.execute("SELECT id FROM users WHERE username = ?", username)
+
+        session["user_id"] = rows[0]["id"]
+
+        flash("Registered successfully!")
         return redirect("/")
+
 
 
 @app.route("/sell", methods=["GET", "POST"])
