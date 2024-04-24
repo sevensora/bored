@@ -5,16 +5,15 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <h1>Buy Stocks</h1>
-        <form action="/buy" method="post">
-            <div class="mb-3">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Stock Symbol" type="text">
-            </div>
-            <div class="mb-3">
-                <input class="form-control mx-auto w-auto" name="shares" placeholder="Number of Shares" type="number" min="1">
-            </div>
-            <button class="btn btn-primary" type="submit">Buy</button>
+    <h1>Buy Stocks</h1>
+    <form action='{{ url_for('buy) }}' methods='post'>
+        <label for='symbol'>Symbol:</label>
+        <input type='text' name='symbol' id='symbol'>
+
+         <br>
+        <label for='shares'>Shares:</label>
+        <input type='text' name='shares' id='shares'>
+        <br>
+        <input typoe='submit' value='Purchase'>
         </form>
-    </div>
 {% endblock %}
