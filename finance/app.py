@@ -36,12 +36,12 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     user_id = session["user_id"]
-    transactions_db = db.execute("SELECT symbol, SUM(shares) AS shares, price FROM transactions WHERE user_id = ?", user_id)
+    transactions_db = db.execute(
+        "SELECT symbol, SUM(shares) AS shares, price FROM transactions WHERE user_id = ?", user_id)
     cash_db = db.execute("SELECT cash FROM users WHERE id = ?", user_id)
     cash = cash_db[0]["cash"]
 
-
-    return render_template("index.html", database = transactions_db, cash = cash)
+    return render_template("index.html", database=transactions_db, cash=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -78,7 +78,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    transactions = db.execute("SELECT * FROM transactions WHERE user_id = :user_id ORDER BY timestamp DESC", user_id=session["user_id"])
+    transactions = db.execute(
+        "SELECT * FROM transactions WHERE user_id = :user_id ORDER BY timestamp DESC", user_id=session["user_id"])
     return render_template("history.html", transactions=transactions)
 
 
@@ -166,16 +167,19 @@ def register():
             return apology("Please check password")
         hash = generate_password_hash(password)
         try:
-            new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
+            new_user = db.execute(
+                "INSERT INTO users (username, hash) VALUES (?, ?)", username, hash)
         except:
             return apology("Username already exists")
         session["user_id"] = new_user
         return redirect("/")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     if request.method == "GET":
         user_id = session["user_id"]
-        symbols_user = db.execute("SELECT symbol FROM transaction WHERE user_id = :id HAVING SUM(shares) > 0", id=user_id)
-        return render_template("sell.html", symbols = [row["symbol"] for row in rows])
+        symbols_user = db.execute(
+            "SELECT symbol FROM transaction WHERE user_id = :id HAVING SUM(shares) > 0", id=user_id)
+        return render_template("sell.html", symbols=[row["symbol"] for row in rows])
