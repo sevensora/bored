@@ -3,15 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poker Game</title>
+    <title>Blackjack Game</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #073642;
+            background-image: url('path_to_your_background_image.jpg');
+            color: #fdf6e3;
+            text-align: center;
+            padding: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            border: 2px solid #eee8d5;
+            border-radius: 8px;
+            background-color: #839496;
+            color: #002b36;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            background-color: #2aa198;
+            color: #fdf6e3;
+            cursor: pointer;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            background-color: #268bd2; 
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.4);
+        }
+        h1, h2 {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Your Poker Hand</h1>
+    <h1>Blackjack</h1>
+    <h2>Your Hand (Total: {{ player_value }}):</h2>
     <ul>
-        {% for card in hand %}
+        {% for card in player_hand %}
         <li>{{ card.rank }} of {{ card.suit }}</li>
         {% endfor %}
     </ul>
-    <h2>Hand Evaluation: {{ hand_rank }}</h2>
+    <h2>Dealer's Hand:</h2>
+    <ul>
+        {% if dealer_hand %}
+        <li>{{ dealer_hand[0].rank }} of {{ dealer_hand[0].suit }}</li>
+        <li>Hidden Card</li>
+        {% endif %}
+    </ul>
+    <form action="/" method="post">
+        <button name="hit" type="submit">Hit</button>
+        <button name="stand" type="submit">Stand</button>
+    </form>
 </body>
 </html>
