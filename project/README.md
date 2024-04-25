@@ -1,5 +1,5 @@
 # BLACKJACK
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://www.youtube.com/watch?v=BSI8xnloELE>
 #### Description:
 This web-based Blackjack game is a sophisticated digital rendition of the traditional card game, designed to simulate the experience of playing against a dealer in a casino environment but accessible via any web browser. Developed using Flask, this game is crafted to engage users with its interactive gameplay and visually appealing interface. The project harnesses the simplicity of Flask to handle backend logic and session management, while the frontend is elegantly styled using HTML and CSS, creating a seamless and immersive user experience.
 
